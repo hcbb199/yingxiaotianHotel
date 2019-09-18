@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Z_reverProject" />
+        <module name="yingxiaotianHotel_util" />
+        <module name="yingxiaotianHotel_dao" />
+        <module name="yingxiaotianHotel_service" />
+        <module name="yingxiaotianHotel_web" />
+        <module name="yingxiaotianHotel_pojo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Z_yingxiaotianHotel_ReversePorject" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
