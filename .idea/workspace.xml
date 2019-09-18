@@ -158,7 +158,14 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-10" />
     <option name="width" value="1935" />
     <option name="height" value="1040" />
@@ -490,24 +497,6 @@
             <path>
               <item name="yingxiaotianHotel_parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="yingxiaotianHotel_parent" type="462c0819:PsiDirectoryNode" />
-              <item name="yingxiaotianHotel_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yingxiaotianHotel_parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yingxiaotianHotel_parent" type="462c0819:PsiDirectoryNode" />
-              <item name="yingxiaotianHotel_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yingxiaotianHotel_parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yingxiaotianHotel_parent" type="462c0819:PsiDirectoryNode" />
               <item name="Z_reverProject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -588,6 +577,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp" />
@@ -630,16 +620,15 @@
       <option name="presentableId" value="Default" />
       <updated>1568716831944</updated>
       <workItem from="1568716833245" duration="4404000" />
-      <workItem from="1568765152656" duration="2304000" />
+      <workItem from="1568765152656" duration="2607000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6708000" />
+    <option name="totallyTimeSpent" value="7011000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
