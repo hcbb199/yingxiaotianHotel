@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Z_reverProject" />
-        <module name="yingxiaotianHotel_util" />
-        <module name="yingxiaotianHotel_dao" />
         <module name="yingxiaotianHotel_service" />
+        <module name="yingxiaotianHotel_dao" />
+        <module name="yingxiaotianHotel_util" />
         <module name="yingxiaotianHotel_web" />
         <module name="yingxiaotianHotel_pojo" />
       </profile>

@@ -57,5 +57,11 @@ public interface AdminService {
 	 * @return
 	 */
 	public PageResult findPage(TbAdmin admin, int pageNum, int pageSize);
-	
+
+	/**
+	 * 根据用户名查找对象
+	 * @param username
+	 * @return
+	 */
+	TbAdmin findOneByUsername(String username);
 }

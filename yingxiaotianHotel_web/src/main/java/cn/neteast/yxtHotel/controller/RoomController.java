@@ -1,10 +1,11 @@
 package cn.neteast.yxtHotel.controller;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.alibaba.dubbo.config.annotation.Reference;
+
 import cn.neteast.yxtHotel.pojo.TbRoom;
 import cn.neteast.yxtHotel.service.RoomService;
 
@@ -19,7 +20,7 @@ import entity.Result;
 @RequestMapping("/room")
 public class RoomController {
 
-	@Reference
+	@Autowired
 	private RoomService roomService;
 	
 	/**
@@ -101,7 +102,7 @@ public class RoomController {
 	
 		/**
 	 * 查询+分页
-	 * @param brand
+	 * @param room
 	 * @param page
 	 * @param rows
 	 * @return

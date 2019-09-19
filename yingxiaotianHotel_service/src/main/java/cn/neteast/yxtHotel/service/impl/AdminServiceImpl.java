@@ -100,5 +100,17 @@ public class AdminServiceImpl implements AdminService {
 		Page<TbAdmin> page= (Page<TbAdmin>)adminMapper.selectByExample(example);		
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-	
+
+	@Override
+	public TbAdmin findOneByUsername(String username) {
+		TbAdminExample example = new TbAdminExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andUsernameEqualTo(username);
+		List<TbAdmin> tbAdmins = adminMapper.selectByExample(example);
+		if (tbAdmins != null && tbAdmins.size() > 0) {
+			return tbAdmins.get(0);
+		} else {
+			return null;
+		}
+	}
 }

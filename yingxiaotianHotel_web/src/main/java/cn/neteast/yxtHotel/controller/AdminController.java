@@ -102,7 +102,7 @@ public class AdminController {
 	
 		/**
 	 * 查询+分页
-	 * @param brand
+	 * @param admin
 	 * @param page
 	 * @param rows
 	 * @return

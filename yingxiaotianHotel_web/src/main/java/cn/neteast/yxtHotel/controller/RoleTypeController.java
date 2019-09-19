@@ -1,10 +1,10 @@
 package cn.neteast.yxtHotel.controller;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.alibaba.dubbo.config.annotation.Reference;
 import cn.neteast.yxtHotel.pojo.TbRoleType;
 import cn.neteast.yxtHotel.service.RoleTypeService;
 
@@ -19,7 +19,7 @@ import entity.Result;
 @RequestMapping("/roleType")
 public class RoleTypeController {
 
-	@Reference
+	@Autowired
 	private RoleTypeService roleTypeService;
 	
 	/**
@@ -101,7 +101,7 @@ public class RoleTypeController {
 	
 		/**
 	 * 查询+分页
-	 * @param brand
+	 * @param roleType
 	 * @param page
 	 * @param rows
 	 * @return
