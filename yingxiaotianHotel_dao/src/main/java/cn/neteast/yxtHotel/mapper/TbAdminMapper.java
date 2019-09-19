@@ -2,6 +2,7 @@ package cn.neteast.yxtHotel.mapper;
 
 import cn.neteast.yxtHotel.pojo.TbAdmin;
 import cn.neteast.yxtHotel.pojo.TbAdminExample;
+import cn.neteast.yxtHotel.pojo.TbRoleType;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public interface TbAdminMapper {
     int updateByPrimaryKeySelective(TbAdmin record);
 
     int updateByPrimaryKey(TbAdmin record);
+
+
 }

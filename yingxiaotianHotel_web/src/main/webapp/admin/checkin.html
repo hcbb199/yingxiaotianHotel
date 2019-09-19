@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>权限管理</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="../plugins/jQueryUI/jquery-ui.min.js"></script>
+
+    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script src="../plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <!--引入angularJS插件-->
+    <script src="../plugins/angularjs/angular.min.js"></script>
+    <!--引入分页组件开始-->
+    <script src="../plugins/angularjs/pagination.js"></script>
+    <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+    <!--引入分页组件结束-->
+    <!--引入带分页的基础总模块-->
+    <script src="../js/base_pagination.js"></script>
+    <script src="../js/service/goodsService.js"></script>
+    <script src="../js/service/itemCatService.js"></script>
+    <script type="text/javascript" src="../js/service/typeTemplateService.js"></script>
+    <script type="text/javascript" src="../js/service/uploadService.js"></script>
+    <!--引入基础控制器(抽取通用的代码)-->
+    <script src="../js/controller/baseController.js"></script>
+    <script src="../js/controller/goodsController.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            // datetime picker
+            $('#dateTimePicker').datetimepicker({
+                format: "mm/dd/yyyy - hh:ii",
+                autoclose: true,
+                todayBtn: true,
+                language: 'zh-CN'
+            });
+
+        })
+
+    </script>
+
+</head>
+<!--getItemCatList(): 获取分类id所对应分类名称-->
+<body class="hold-transition skin-red sidebar-mini" ng-app="pyg" ng-controller="goodsController"
+      ng-init="getItemCatList()">
+<!-- .box-body -->
+
+<div class="box-header with-border">
+    <img src="../img/yxtImg/logo.png" height="88px" width="250px">
+    <h3 class="box-title">办理入住</h3>
+</div>
+
+<div class="box-body">
+
+    <!-- 数据表格 -->
+    <div class="table-box">
+
+
+        <!-- 编辑窗口 -->
+        <div aria-hidden="true">
+            <div class="col-lg-4 col-xs-12">
+                <div class="modal-content">
+                    <tr>
+                        <td>
+                            <img src="{{entity.pic}}" height="450px" width="400px"><br>
+
+                        </td>
+                    </tr>
+                </div>
+            </div>
+            <div class="col-lg-8 col-xs-12">
+
+
+                    <div class="modal-header">
+
+                        <h3 id="myModalLabel">301 号房</h3>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered table-striped" width="800px">
+                            <tr>
+
+                                <td>房间类型</td>
+
+                                <td>
+                                    <span class="form-control">单人间</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+
+                                <td>房间价格</td>
+
+                                <td><span class="form-control">150 元</span></td>
+
+                            </tr>
+                            <tr>
+
+                                <td>客户姓名</td>
+
+                                <td><input class="form-control" placeholder="客户姓名"></td>
+
+                            </tr>
+                            <tr>
+
+                                <td>身份证号</td>
+
+                                <td><input class="form-control" placeholder="身份证号"></td>
+
+                            </tr>
+                            <tr>
+
+                                <td>截止日期</td>
+
+                                <td>
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="dateTimePicker">
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal" aria-hidden="true" ng-click="save()">保存
+                        </button>
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+                    </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- 数据表格 /-->
+
+</div>
+<!-- /.box-body -->
+
+</body>
+
+</html>

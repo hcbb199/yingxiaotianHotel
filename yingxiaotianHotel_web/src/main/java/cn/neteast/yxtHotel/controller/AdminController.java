@@ -111,5 +111,6 @@ public class AdminController {
 	public PageResult search(@RequestBody TbAdmin admin, int page, int rows  ){
 		return adminService.findPage(admin, page, rows);		
 	}
-	
+
+
 }

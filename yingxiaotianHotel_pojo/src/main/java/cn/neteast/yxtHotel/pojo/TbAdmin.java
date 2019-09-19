@@ -1,8 +1,9 @@
 package cn.neteast.yxtHotel.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbAdmin {
+public class TbAdmin  implements Serializable {
     private Long adminId;
 
     private String username;

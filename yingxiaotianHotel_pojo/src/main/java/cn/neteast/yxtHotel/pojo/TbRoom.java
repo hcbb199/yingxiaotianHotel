@@ -1,6 +1,8 @@
 package cn.neteast.yxtHotel.pojo;
 
-public class TbRoom {
+import java.io.Serializable;
+
+public class TbRoom  implements Serializable {
     private Long roomId;
 
     private String roomNumber;

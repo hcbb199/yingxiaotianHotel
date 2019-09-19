@@ -2,6 +2,7 @@ package cn.neteast.yxtHotel.service;
 import java.util.List;
 import cn.neteast.yxtHotel.pojo.TbOrder;
 
+import cn.neteast.yxtHotel.pojo.TbRoom;
 import entity.PageResult;
 /**
  * 服务层接口
@@ -57,5 +58,11 @@ public interface OrderService {
 	 * @return
 	 */
 	public PageResult findPage(TbOrder order, int pageNum, int pageSize);
-	
+
+	/**
+	 * 根据房间号查找该房间当前订单
+	 * @param tbRoom
+	 * @return
+	 */
+	TbOrder findOrderByRoom(TbRoom tbRoom);
 }

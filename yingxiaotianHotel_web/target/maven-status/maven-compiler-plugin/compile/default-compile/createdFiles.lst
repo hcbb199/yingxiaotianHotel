@@ -1,0 +1,8 @@
+cn\neteast\yxtHotel\controller\OrderController.class
+cn\neteast\yxtHotel\controller\LoginController.class
+cn\neteast\yxtHotel\controller\UploadController.class
+cn\neteast\yxtHotel\controller\RoomController.class
+cn\neteast\yxtHotel\controller\AdminController.class
+cn\neteast\service\UserDetailsServiceImpl.class
+cn\neteast\yxtHotel\controller\RoomTypeController.class
+cn\neteast\yxtHotel\controller\RoleTypeController.class

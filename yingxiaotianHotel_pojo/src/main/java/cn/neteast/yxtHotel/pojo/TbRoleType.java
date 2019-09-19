@@ -1,6 +1,8 @@
 package cn.neteast.yxtHotel.pojo;
 
-public class TbRoleType {
+import java.io.Serializable;
+
+public class TbRoleType  implements Serializable {
     private Long roleTypeId;
 
     private String roleType;

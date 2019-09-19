@@ -1,6 +1,10 @@
 package cn.neteast.yxtHotel.controller;
+import java.util.ArrayList;
 import java.util.List;
 
+import cn.neteast.yxtHotel.pojo.TbOrder;
+import cn.neteast.yxtHotel.pojoGroup.Room;
+import cn.neteast.yxtHotel.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +26,8 @@ public class RoomController {
 
 	@Autowired
 	private RoomService roomService;
-	
+	@Autowired
+	private OrderService orderService;
 	/**
 	 * 返回全部列表
 	 * @return
@@ -110,6 +115,14 @@ public class RoomController {
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbRoom room, int page, int rows  ){
 		return roomService.findPage(room, page, rows);		
+	}
+
+	/**
+	 * 查询所有房间及其当前订单
+	 */
+	@RequestMapping("/findAllRomeAndOrder")
+	public List<Room> findAllRomeAndOrder() {
+		return roomService.findAllRomeAndOrder();
 	}
 	
 }

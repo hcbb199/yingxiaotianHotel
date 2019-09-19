@@ -1,8 +1,9 @@
 package cn.neteast.yxtHotel.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbOrder {
+public class TbOrder  implements Serializable {
     private Long orderId;
 
     private Long roomId;
