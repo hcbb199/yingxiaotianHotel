@@ -105,7 +105,7 @@ public class RoomController {
 		}
 	}
 	
-		/**
+	/**
 	 * 查询+分页
 	 * @param room
 	 * @param page
@@ -120,9 +120,11 @@ public class RoomController {
 	/**
 	 * 查询所有房间及其当前订单
 	 */
-	@RequestMapping("/findAllRomeAndOrder")
-	public List<Room> findAllRomeAndOrder() {
-		return roomService.findAllRomeAndOrder();
+	@RequestMapping("/findAllRoomAndOrder")
+	public List<Room> findAllRoomAndOrder() {
+		List<Room> allRoomAndOrder = roomService.findAllRoomAndOrder();
+		//System.out.println(allRoomAndOrder.toString());
+		return allRoomAndOrder;
 	}
 	
 }

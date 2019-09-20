@@ -6,30 +6,39 @@ import cn.neteast.yxtHotel.pojo.TbRoom;
 import java.io.Serializable;
 
 public class Room implements Serializable {
-    private TbRoom tbRome;
+    private TbRoom tbRoom;
     private TbOrder order;
-
+    private Long leftTime;
     public Room() {
     }
 
-    public Room(TbRoom tbRome, TbOrder order) {
-        this.tbRome = tbRome;
+    public Room(TbRoom tbRoom, TbOrder order, Long leftTime) {
+        this.tbRoom = tbRoom;
+        this.order = order;
+        this.leftTime = leftTime;
+    }
+
+    public void setTbRoom(TbRoom tbRoom) {
+        this.tbRoom = tbRoom;
+    }
+
+    public void setOrder(TbOrder order) {
         this.order = order;
     }
 
-    public TbRoom getTbRome() {
-        return tbRome;
+    public void setLeftTime(Long leftTime) {
+        this.leftTime = leftTime;
     }
 
-    public void setTbRome(TbRoom tbRome) {
-        this.tbRome = tbRome;
+    public TbRoom getTbRoom() {
+        return tbRoom;
     }
 
     public TbOrder getOrder() {
         return order;
     }
 
-    public void setOrder(TbOrder order) {
-        this.order = order;
+    public Long getLeftTime() {
+        return leftTime;
     }
 }

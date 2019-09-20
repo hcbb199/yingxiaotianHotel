@@ -66,4 +66,5 @@ public interface AdminService {
 	TbAdmin findOneByUsername(String username);
 
 
+    Boolean checkUsername(String username);
 }

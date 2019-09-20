@@ -1,4 +1,5 @@
 package cn.neteast.yxtHotel.service.impl;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -47,6 +48,8 @@ public class AdminServiceImpl implements AdminService {
 	 */
 	@Override
 	public void add(TbAdmin admin) {
+		admin.setCreateTime(new Date());
+		admin.setRoleTypeId((long) 1);
 		adminMapper.insert(admin);		
 	}
 
@@ -112,5 +115,18 @@ public class AdminServiceImpl implements AdminService {
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	public Boolean checkUsername(String username) {
+
+		TbAdminExample example = new TbAdminExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andUsernameEqualTo(username);
+		List<TbAdmin> tbAdmins = adminMapper.selectByExample(example);
+		if (tbAdmins != null && tbAdmins.size() > 0) {
+			return false;
+		}
+		return true;
 	}
 }

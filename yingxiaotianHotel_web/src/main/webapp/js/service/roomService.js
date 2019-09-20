@@ -30,8 +30,16 @@ app.service('roomService',function($http){
 		return $http.post('../room/search.do?page='+page+"&rows="+rows, searchEntity);
 	};
 	//查询所有房间及其当前订单
-	this.findAllRomeAndOrder = function () {
-		return $http.get("../room/findAllRomeAndOrder.do");
+	this.findAllRoomAndOrder = function () {
+		return $http.get("../room/findAllRoomAndOrder.do");
 
 	};
+	//获取所有房间类型
+	this.getRoomTypeList = function () {
+		return $http.get("../roomType/findAll.do");
+	};
+	//添加新房间
+	this.saveNewRoom = function (newRoom) {
+		return $http.post("../room/add.do", newRoom);
+	}
 });

@@ -39,8 +39,10 @@
                     username-parameter="username"
                     password-parameter="password"
                     default-target-url="/admin/index.html"
-                    authentication-failure-url="/login.html"
+                    authentication-failure-url="/403.html"
+
                     always-use-default-target="true"
+
         ></form-login>
         <!--关闭csrf, 否则访问html页面时会报403错-->
         <csrf disabled="true"></csrf>

@@ -2,6 +2,7 @@ package cn.neteast.yxtHotel.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,8 +51,14 @@ public class AdminController {
 	@RequestMapping("/add")
 	public Result add(@RequestBody TbAdmin admin){
 		try {
-			adminService.add(admin);
-			return new Result(true, "增加成功");
+			String name = SecurityContextHolder.getContext().getAuthentication().getName();
+			TbAdmin adminLogin = adminService.findOneByUsername(name);
+			if (adminLogin.getRoleTypeId() == 0) {
+				adminService.add(admin);
+				return new Result(true, "增加成功");
+			} else {
+				return new Result(false, "当前管理员权限不足");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, "增加失败");
@@ -92,8 +99,15 @@ public class AdminController {
 	@RequestMapping("/delete")
 	public Result delete(Long [] ids){
 		try {
-			adminService.delete(ids);
-			return new Result(true, "删除成功"); 
+			String name = SecurityContextHolder.getContext().getAuthentication().getName();
+			TbAdmin adminLogin = adminService.findOneByUsername(name);
+			if (adminLogin.getRoleTypeId() == 0) {
+				adminService.delete(ids);
+				return new Result(true, "删除成功");
+			} else {
+				return new Result(false, "当前管理员权限不足");
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, "删除失败");
@@ -112,5 +126,26 @@ public class AdminController {
 		return adminService.findPage(admin, page, rows);		
 	}
 
+	/**
+	 * 校验用户名是否已存在
+	 * @param username
+	 * @return
+	 */
+	@RequestMapping("/checkUsername")
+	public Result checkUsername(String username) {
+
+		try {
+			Boolean flag = adminService.checkUsername(username);
+			if (flag) {
+				return new Result(true, "用户名可用");
+			} else {
+				return new Result(false, "用户名已存在, 不可用");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "校验失败");
+		}
+	}
 
 }

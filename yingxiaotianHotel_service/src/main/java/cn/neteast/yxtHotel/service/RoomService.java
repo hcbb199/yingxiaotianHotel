@@ -63,5 +63,5 @@ public interface RoomService {
 	 * 查询所有房间及其当前订单
 	 * @return
 	 */
-	List<Room> findAllRomeAndOrder();
+	List<Room> findAllRoomAndOrder();
 }

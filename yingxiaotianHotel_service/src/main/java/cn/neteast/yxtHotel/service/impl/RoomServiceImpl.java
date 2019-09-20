@@ -1,6 +1,7 @@
 package cn.neteast.yxtHotel.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cn.neteast.yxtHotel.mapper.TbOrderMapper;
@@ -62,6 +63,7 @@ public class RoomServiceImpl implements RoomService {
      */
     @Override
     public void add(TbRoom room) {
+        room.setRoomAvailable((long) 1);
         roomMapper.insert(room);
     }
 
@@ -119,16 +121,18 @@ public class RoomServiceImpl implements RoomService {
         Page<TbRoom> page = (Page<TbRoom>) roomMapper.selectByExample(example);
         return new PageResult(page.getTotal(), page.getResult());
     }
+
     /**
      * 查询所有房间及其当前订单
+     *
      * @return
      */
     @Override
-    public List<Room> findAllRomeAndOrder() {
+    public List<Room> findAllRoomAndOrder() {
         List<Room> roomsList = new ArrayList<>();
         TbRoomExample example = new TbRoomExample();
         //按照状态降序, 保证第一个为已入住的
-        example.setOrderByClause("room_available desc");
+        example.setOrderByClause("room_available asc");
         List<TbRoom> roomList = roomMapper.selectByExample(example);
 
 
@@ -143,13 +147,16 @@ public class RoomServiceImpl implements RoomService {
                     criteria.andOrderStatusEqualTo((long) 1);
                     List<TbOrder> tbOrders = orderMapper.selectByExample(orderExample);
                     if (tbOrders != null && tbOrders.size() > 0) {
-                        roomsList.add(new Room(tbRoom, tbOrders.get(0)));
+                        Long leftTime = (tbOrders.get(0).getCheckoutDate().getTime()) - (new Date().getTime());
+                        roomsList.add(new Room(tbRoom, tbOrders.get(0), (long) Math.floor(leftTime/1000)));
                     } else {
-                        roomsList.add(new Room(tbRoom, null));
+                        roomsList.add(new Room(tbRoom, null, (long) 0));
                     }
 
+                } else {
+                    roomsList.add(new Room(tbRoom, null, (long) 0));
                 }
-                roomsList.add(new Room(tbRoom, null));
+
             }
         }
         return roomsList;

@@ -45,7 +45,7 @@
 
 </head>
 
-<body class="hold-transition skin-blue-light sidebar-mini" ng-app="pyg" ng-controller="loginController" ng-init="loginName()">
+<body class="hold-transition skin-blue-light sidebar-mini" ng-app="yxt" ng-controller="loginController" ng-init="loginName()">
 
     <div class="wrapper">
 
@@ -294,7 +294,8 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">分配权限</a>
+                                        <a ng-if="loginName=='admin'" href="admin.html" target="iframe" class="btn btn-default btn-flat">分配权限</a>
+
                                     </div>
                                     <div class="pull-right">
                                         <a href="../logout" class="btn btn-default btn-flat">注销退出</a>

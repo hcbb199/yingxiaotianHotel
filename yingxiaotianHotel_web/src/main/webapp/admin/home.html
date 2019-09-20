@@ -12,9 +12,24 @@
     <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!--引入angularJS插件-->
+    <script src="../plugins/angularjs/angular.min.js"></script>
+
+    <!--引入带分页的基础总模块-->
+    <script src="../js/base.js"></script>
+    <script src="../js/service/roomService.js"></script>
+    <script src="../js/service/uploadService.js"></script>
+    <script src="../js/service/orderService.js"></script>
+
+
+    <!--引入基础控制器(抽取通用的代码)-->
+    <script src="../js/controller/baseController.js"></script>
+    <script src="../js/controller/roomController.js"></script>
+
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" ng-app="yxt"
+      ng-controller="roomController" ng-init="findAllRoomAndOrder()">
 
 <!-- 内容区域 -->
 
@@ -27,17 +42,15 @@
 
     </div>
 
-    <!--<h1>
-        入住概况
-        <small>首页</small>
-    </h1>-->
+
     <ol class="breadcrumb pull-right" style="margin-top: 20px">
-        <li><span>共<span style="color: green"> 11 </span>间房&nbsp;, 已入住<span style="color: blue"> 2 </span>间&nbsp;, 剩余:<span style="color: red"> 9 </span>间</span></li>&nbsp;&nbsp;&nbsp;
+        <li><span>共<span style="color: green"> {{roomsListLength}} </span>间房&nbsp;, 已入住<span
+                style="color: blue"> {{full}} </span>间&nbsp;, 剩余:<span style="color: red"> {{empty}} </span>间</span></li>&nbsp;&nbsp;&nbsp;
         <a href="order.html"> >>> 详情 >>> </a>&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary" type="button">
+        <button class="btn btn-primary" type="button" ng-click="selectEmpty()">
             空房
         </button>
-        <button class="btn btn-primary" type="button">
+        <button class="btn btn-primary" type="button" ng-click="findAllRoomAndOrder()">
             全部
         </button>&nbsp;&nbsp;
         <!--<li><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> 首页</a></li>-->
@@ -51,110 +64,82 @@
 
     <!-- 统计数值 -->
     <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3 col-xs-6" ng-repeat="room in roomsList">
             <!-- small box -->
-            <div class="small-box bg-light-blue">
+            <div class="small-box bg-gray">
                 <div class="inner">
-                    <img src="../img/yxtImg/banner1.jpg" width="270px" height="150px">
+                    <img src="{{room.tbRoom.roomPic}}" width="270px" height="150px">
 
-                    <span>房号 : 1-101 </span><span> (满)</span><br>
-                    <span>剩余时间 : 1 天 2 小时 33 分钟</span>
-
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">退房 <i
-                        class="fa fa-arrow-circle-right"></i></a>
-                <a href="continue.html" class="small-box-footer">续住 <i
-                        class="fa fa-arrow-circle-right"></i> </a>
-            </div>
-        </div>
-
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-light-blue">
-                <div class="inner">
-                    <img src="../img/yxtImg/banner1.jpg" width="270px" height="150px">
-
-                    <span>房号 : 1-101 </span><span> (满)</span><br>
-                    <span>剩余时间 : 1 天 2 小时 33 分钟</span>
+                    <span>房号 : {{room.tbRoom.roomNumber}} </span>
+                    <span ng-if="room.tbRoom.roomAvailable==0">&nbsp;&nbsp;( 满 )</span>
+                    <span ng-if="room.tbRoom.roomAvailable==1">&nbsp;&nbsp;( 空 )</span><br>
+                    <span>剩余时间 : {{convertTimeString(room.leftTime)}}</span>
 
                 </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">退房 <i
-                        class="fa fa-arrow-circle-right"></i></a>
-                <a href="continue.html" class="small-box-footer">续住 <i
-                        class="fa fa-arrow-circle-right"></i> </a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-light-blue">
-                <div class="inner">
-                    <img src="../img/yxtImg/banner1.jpg" width="270px" height="150px">
 
-                    <span>房号 : 1-101 </span><span> (满)</span><br>
-                    <span>剩余时间 : 1 天 2 小时 33 分钟</span>
-
-                </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
 
-                <a href="#" class="small-box-footer">退房 <i
-                        class="fa fa-arrow-circle-right"></i></a>
-                <a href="continue.html" class="small-box-footer">续住 <i
-                        class="fa fa-arrow-circle-right"></i> </a>
+                <div ng-if="room.tbRoom.roomAvailable==0" class="bg-light-blue" ng-click="checkout(room.tbRoom.roomId)">
+                    <div>
+                        <div style="width:50px;color: white;margin: auto">退房</div>
+                    </div>
+
+                </div>
+
+                <div ng-if="room.tbRoom.roomAvailable==0" class="bg-light-blue"
+                     ng-click="changeDate(room.order.orderId,room.order.checkoutDate)">
+                    <div>
+                        <div  style="width:50px;color: white;margin: auto">续住</div>
+                    </div>
+
+                </div>
+
+                <div ng-if="room.tbRoom.roomAvailable==1" class="bg-green-gradient"
+                     ng-click="getCheckinParam(room.tbRoom.roomId,room.tbRoom.roomPic,room.tbRoom.roomNumber,room.tbRoom.roomTypeId,room.tbRoom.roomPrice)">
+                    <div href="#" >
+                        <div style="width:50px;color: white;margin: auto">入住</div>
+                    </div>
+                    <div  href="#">
+                        <div style="width:50px;color: white;margin: auto">&nbsp;&nbsp;</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
 
-            <!-- small box -->
-            <div class="small-box bg-green">
-                <div class="inner">
-                    <a href="checkin.html">
-                        <img src="../img/yxtImg/banner1.jpg" width="270px" height="150px">
-                    </a>
-                    <span>房号 : 1-101 </span><span> (空)</span><br>
-                    <span>剩余时间 :   天   小时   分钟</span>
 
-                </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="checkin.html" class="small-box-footer">入住 <i
-                        class="fa fa-arrow-circle-right"></i></a>
-                <a href="#" class="small-box-footer">&nbsp;<i
-                        class="fa fa-arrow-circle-right"></i></a>
-            </div>
-
-        </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
-            <div class="small-box bg-gray-light">
+            <div class="small-box bg-gray">
                 <div class="inner">
                     <a href="addroom.html">
-                        <img src="../img/yxtImg/add.jpg" width="270px" height="150px">
+                        <img src="../img/yxtImg/add.jpg" width="270px" height="170px">
 
-                        <span>新增房间</span><br>
+                        <span>&nbsp;&nbsp;</span>
+                        <span>&nbsp;&nbsp;</span>
                     </a>
 
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
+                <div class="bg-yellow">
+                    <a href="addroom.html">
+                        <div style="width:50px;color: white;margin: auto">新增</div>
+                    </a>
+                    <a  href="#">
+                        <div style="width:50px;color: white;margin: auto">&nbsp;&nbsp;</div>
+                    </a>
+                </div>
+                <!--<div class="bg-red">
                 <a href="addroom.html" class="small-box-footer">新增 <i
                         class="fa fa-arrow-circle-right"></i></a>
                 <a href="#" class="small-box-footer">&nbsp; <i
                         class="fa fa-arrow-circle-right"></i></a>
+                </div>-->
             </div>
         </div>
         <!-- ./col -->
