@@ -103,28 +103,28 @@ app.controller('roomController', function ($scope, $controller, $interval, uploa
     };
     $scope.copy = JSON.parse(JSON.stringify($scope.roomsList));
     $scope.selectEmpty = function () {
-        $scope.roomsList = [];
+        $scope.roomsList = {};
         for (var i = 0; i < $scope.copy.length; i++) {
-            if ( $scope.copy[i]["order"]==null) {
+            if ( $scope.copy[i].order == null) {
                 $scope.roomsList = $scope.roomsList.append($scope.copy[i]);
             }
 
         }
         return $scope.roomsList;
     };
+    $scope.getTemplTime = function () {
+         $interval(function () {
+            if ($scope.roomsList != null && $scope.roomsList.length > 0) {
 
-    time = $interval(function () {
-        if ($scope.roomsList != null && $scope.roomsList.length > 0) {
-            for (var i = 0; i < $scope.roomsList.length; i++) {
-                if (($scope.roomsList[i].leftTime--) > 0) {
-                    $scope.roomsList[i].leftTime = convertTimeString($scope.roomsList[i].leftTime);//转换时间字符串
-                } else {
-                    $interval.cancel(time);
-
+                for (var i = 0; i < $scope.roomsList.length; i++) {
+                    if ($scope.roomsList[i].leftTime > 0) {
+                        $scope.roomsList[i].leftTime--;
+                    }
                 }
             }
-        }
-    }, 1000);
+        }, 1000);
+
+    };
 
 
     //转换秒为   天小时分钟秒格式  XXX天 10:22:33
