@@ -4,6 +4,11 @@
     <list default="true" id="11ee35cf-df4c-42ff-a702-794275a19ba7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/js/controller/goodsController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/js/service/goodsService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/js/service/itemCatService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/js/service/sellerService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/js/service/typeTemplateService.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,7 +56,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/admin/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="1170">
               <caret line="78" selection-start-line="78" selection-end-line="78" />
               <folding>
                 <element signature="n#style#0;n#ol#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -96,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/js/controller/roomController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+              <caret line="110" selection-start-line="110" selection-end-line="110" />
             </state>
           </provider>
         </entry>
@@ -239,8 +244,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="147" />
-    <option name="y" value="-4" />
+    <option name="x" value="146" />
+    <option name="y" value="-5" />
     <option name="width" value="1935" />
     <option name="height" value="1040" />
   </component>
@@ -252,6 +257,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -328,7 +334,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,20 +455,20 @@
       <workItem from="1568989597034" duration="592000" />
       <workItem from="1569032293369" duration="15654000" />
       <workItem from="1569053832415" duration="1144000" />
+      <workItem from="1569071079933" duration="244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119308000" />
+    <option name="totallyTimeSpent" value="119552000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.49910554" visible="true" weight="0.2637584" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.49910554" visible="true" weight="0.26778522" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Web" order="5" sideWeight="0.5008944" side_tool="true" weight="0.24966443" />
       <window_info anchor="bottom" id="Version Control" order="0" />
@@ -819,6 +824,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/admin/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+          <folding>
+            <element signature="n#style#0;n#ol#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#li#0;n#ol#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#span#0;n#li#0;n#ol#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#span#0;n#li#0;n#ol#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#2;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#1;n#div#2;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -864,25 +884,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/admin/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-          <folding>
-            <element signature="n#style#0;n#ol#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#li#0;n#ol#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#span#0;n#li#0;n#ol#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#span#0;n#li#0;n#ol#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#2;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#1;n#div#2;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yingxiaotianHotel_web/src/main/webapp/js/controller/roomController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
         </state>
       </provider>
     </entry>
